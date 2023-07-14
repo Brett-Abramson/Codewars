@@ -34,12 +34,16 @@ console.log(findOdd(array));
 // My solution time complexity was O(n^2)
 // The one below is O(n)
 function findOdd(A) {
+    // initialize an empty object that will store the counts of each element in array
     var obj = {};
+
     A.forEach(function(el){
+        // check if current element exists as a property in obj.if true increases count, otherwise adds it
       obj[el] ? obj[el]++ : obj[el] = 1;
     });
-    
+    // iterates over the properties of obj
     for(prop in obj) {
+        // checks if the count is odd
       if(obj[prop] % 2 !== 0) return Number(prop);
     }
   }
