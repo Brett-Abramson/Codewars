@@ -37,10 +37,9 @@ const solution = (string) => {
 
 console.log(solution("camelCaseTesting"));
 
-
 // regEx example :
-  const regExSolution = (string) => {
-  return string.replace(/([A-Z])/g, ' $1');
+const regExSolution = (string) => {
+  return string.replace(/([A-Z])/g, " $1");
 };
 
 console.log(solution("camelCaseTesting"));
