@@ -18,3 +18,22 @@ const expandedForm = (num) => {
 };
 
 console.log(expandedForm(42));
+
+// REFACTORED
+
+const expandedForm1 = (num) => {
+  if(typeof num !== "number" || !Number.isInteger(num)){
+    throw new Error("Input must be a positive integer.")
+  }
+  
+  const numStr = Math.abs(num).toString();
+  const numArray = numStr.split("")
+  let expanded = "";
+
+  for (let i = 0; i < numArray.length; i++) {
+    if (numArray[i] !== 0 ) {
+      expanded += (i > 0 ? " + " : "") + numArray[i].padEnd(numArray.length - i, "0")
+    } 
+  }
+  return num >= 0 ? expanded : "-" + expanded;
+};
