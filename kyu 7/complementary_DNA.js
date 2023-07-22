@@ -22,3 +22,19 @@ const DNAStrand = (dna) => {
 };
 
 console.log(DNAStrand("ATTGC"));
+
+// REFACTOR
+
+const dnaStrand = (dna) => {
+    const nucleotideComplements = {
+        "A": "T",
+        "T": "A",
+        "C": "G",
+        "G": "C",
+    }
+
+    const array = dna.split("");
+    const complementarySide = array.map(nucleotide => nucleotideComplements[nucleotide])
+
+    return complementarySide.join("")
+}
