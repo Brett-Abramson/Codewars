@@ -38,3 +38,4 @@ const dnaStrand = (dna) => {
 
     return complementarySide.join("")
 }
+
