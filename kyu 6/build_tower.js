@@ -67,3 +67,10 @@ const towerBuilder1 = (nFloors) => {
 
   return tower;
 };
+
+// Instead of using a separate lengthOfBase variable, we directly calculate the number of asterisks in each row as i * 2 + 1, where i represents the floor number (0-indexed).
+// We use String.prototype.repeat() to efficiently generate the spaces and asterisks for each row without the need for additional loops.
+// The tower array stores the rows of the tower pattern directly as strings with the required spaces and asterisks.
+// We push each row into the tower array using the push() method, eliminating the need for an intermediate firstArray.
+// The tower array is returned as is, without the need for reversing, as the rows are already in the correct order (bottom to top).
+// With this refactoring, the function remains functionally equivalent but with more concise code and improved readability. The use of repeat() simplifies the process of constructing each row, resulting in a cleaner implementation.
