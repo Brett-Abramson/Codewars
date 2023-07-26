@@ -54,19 +54,16 @@ const towerBuilder = (nFloors) => {
   return array.reverse();
 };
 
-const towerBuilder2 = (nFloors) => {
-  // when i = 0 push and pop don't run
-  // when i = 1 they each run once
+// BEST Practice REFACTOR
+
+const towerBuilder1 = (nFloors) => {
+  const tower = [];
+
+  for (let i = 0; i < nFloors; i++) {
+    const spaces = " ".repeat(nFloors - i - 1);
+    const asterisks = "*".repeat(i * 2 + 1);
+    tower.push(spaces + asterisks + spaces);
+  }
+
+  return tower;
 };
-console.log(towerBuilder(3));
-
-// const arrayOf6 = [
-//   "     *     ",
-//   "    ***    ",
-//   "   *****   ",
-//   "  *******  ",
-//   " ********* ",
-//   "***********",
-// ];
-
-// console.log(arrayOf6[2].length);
