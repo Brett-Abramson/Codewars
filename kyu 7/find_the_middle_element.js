@@ -12,3 +12,5 @@ const gimme = (triplet) => {
 };
 
 console.log(gimme(tuple));
+
+
