@@ -12,3 +12,19 @@ const isIsogram = (str) => {
 };
 
 console.log(isIsogram("moOse"));
+
+// REFACTORED
+
+const isIsogramRefactored = (str) => {
+    const charSet = new Set();
+
+    for(const char of str) {
+        const lowerChar = char.toLowerCase();
+        if(charSet.has(lowerChar)){
+            return false;
+        }
+        charSet.add(lowerChar);
+    }
+
+    return true;
+}
