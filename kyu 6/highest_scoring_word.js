@@ -20,8 +20,8 @@ const high = (x) => {
   let largestWordScore = 0;
   let highestWord = "";
 
-//   set point values to 1 - 27
-const baseValueOfA = "a".charCodeAt(0);
+  //   set point values to 1 - 27
+  const baseValueOfA = "a".charCodeAt(0);
 
   for (const word of arrayOfPhrase) {
     let splitWord = word.split("");
@@ -30,17 +30,46 @@ const baseValueOfA = "a".charCodeAt(0);
     let wordScore = 0;
     for (const letter of splitWord) {
       // determine ascii value of each letter
-      const letterScore = letter.charCodeAt(0) - baseValueOfA + 1
+      const letterScore = letter.charCodeAt(0) - baseValueOfA + 1;
       // add this value to a counter for the whole word
       wordScore += letterScore;
     }
     // if the total vlaue of the word is more then that of the highest word counter - replace it with this word and counter
     if (wordScore > largestWordScore) {
       highestWord = word;
-      largestWordScore = wordScore
+      largestWordScore = wordScore;
     }
   }
   return highestWord;
 };
 
 console.log(high(phrase));
+
+// Refactored
+
+const getWordScore = (word) => {
+  const baseValueOfA = "a".charCodeAt(0);
+  return word
+    .split("")
+    .reduce(
+      (score, letter) => score + letter.charCodeAt(0) - baseValueOfA + 1,
+      0
+    );
+};
+
+const high1 = (x) => {
+    let highestScore = 0;
+    let highestWord = "";
+
+    const arrayOfPhrase = x.split("")
+
+    for (const word of arrayOfPhrase) {
+        const wordScore = getWordScore(word);
+        if (wordScore > highestScore) {
+            highestScore = wordScore;
+            highestWord = word;
+        }
+    }
+
+    return highestWord;
+}
