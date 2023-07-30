@@ -4,15 +4,12 @@
 
 // The input array will always be valid! (odd-length >= 3)
 
-const array = [1, 1, 2]
+const array = [1, 1, 2];
 
 const stray = (num) => {
-    num.sort()
-        return num[1] !== num[0] 
-        ? num[0]
-        : num[num.length - 1] 
-}
+  num.sort();
+  return num[1] !== num[0] ? num[0] : num[num.length - 1];
+};
 
-console.log(stray(array))
-
+console.log(stray(array));
 
