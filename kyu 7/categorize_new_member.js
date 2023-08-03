@@ -26,4 +26,12 @@ const openOrSenior = (data) => {
   return memberCategory;
 };
 
-console.log(openOrSenior(arrayPairs));
+// console.log(openOrSenior(arrayPairs));
+
+// REFACTORED
+
+const openOrSeniorRefactored = (data) => {
+  return data.map(([age, handicap]) => (age > 54 && handicap > 7) ? "Senior" : "Open")
+}
+
+console.log(openOrSeniorRefactored(arrayPairs))
