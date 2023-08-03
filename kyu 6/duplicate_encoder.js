@@ -7,14 +7,27 @@ const duplicateEncode = (word) => {
     for (const ltr of string) {
         ltrAmount[ltr] ? ltrAmount[ltr]++ : ltrAmount[ltr] = 1
     }
-    let encoded = []
+    let encoded = ""
     // for each ltr in word check to see its value in ltrAmount is over 1
     for (const ltr of string) {
         (ltrAmount[ltr] > 1) 
-        ? encoded.push(")")
-        : encoded.push("(")
+        ? encoded += ")"
+        : encoded += "("
     }
-    return encoded.join("")
+    return encoded
 };
 
-console.log(duplicateEncoder("Recede"));
+console.log(duplicateEncode("Recede"));
+
+// REFACTORED
+
+// This refactored version increases the time complexity but uses regex
+
+const duplicateEncodeRefactored = (word) => {
+    const string = word.toLowerCase();
+    return string.replace(/./g, (match) => string.indexOf(match) === string.lastIndexOf(match) ? "(" : ")")
+}
+
+// In this regex solution, we use the replace method with the regular expression /./g, which matches any character in the input string. The second argument of the replace method is a callback function that gets called for each match. Inside the callback, we check if the character match appears only once in the string (i.e., its first and last index are the same), and if so, we replace it with '(', otherwise, we replace it with ')'.
+
+// This regex solution achieves the same result as the previous ones but in a more compact manner. The time complexity is still O(n^2) due to the use of indexOf and lastIndexOf methods, but the code is shorter and more expressive.
