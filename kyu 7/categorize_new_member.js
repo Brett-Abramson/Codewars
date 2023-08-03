@@ -29,6 +29,19 @@ const openOrSenior = (data) => {
 // console.log(openOrSenior(arrayPairs));
 
 // REFACTORED
+// The refactored version using the map method is considered better practice for a few reasons:
+
+// Readability: The refactored version is more concise and easier to read. The use of destructuring and the ternary operator makes the code more straightforward and less cluttered.
+
+// Functional Programming: The map method is a functional programming concept that directly transforms each element in the array, leading to more expressive and functional-style code.
+
+// Immutability: The refactored version maintains immutability by creating a new array to store the categories. This is generally preferred in functional programming as it avoids side effects.
+
+// Less Mutation: In the original version, the for loop directly pushes elements into the memberCategory array. In contrast, the map method creates a new array with the transformed elements, avoiding in-place mutation.
+
+// Code Maintenance: The refactored version is easier to maintain and modify in the future due to its clarity and adherence to functional programming principles.
+
+// Therefore, the refactored version using the map method is considered better practice and is recommended for its readability, adherence to functional programming principles, and better code maintainability.
 
 const openOrSeniorRefactored = (data) => {
   return data.map(([age, handicap]) => (age > 54 && handicap > 7) ? "Senior" : "Open")
