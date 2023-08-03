@@ -10,3 +10,6 @@ const isPangram = (string) => {
 }
 
 console.log(isPangram(string))
+
+// REFACTORED
+const isPangramRefactored = (string) => new Set(string.toLowerCase().match(/a-z/g)).size === 26
