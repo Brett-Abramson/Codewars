@@ -9,7 +9,7 @@
 // Note: for this kata y isn't considered a vowel.
 
 const disemvowel = (str) => { 
-  return str.replace(/a|e|i|o|u|A|E|I|O|U/g, "")
+  return str.replace(/[aeiou]/gi, "")
  }
 
  console.log(disemvowel("What are you, a Communist?"))
