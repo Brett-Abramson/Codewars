@@ -19,4 +19,18 @@ const wave = (str) => {
   return wave;
 };
 
-console.log(wave("two words"));
+// console.log(wave("two words"));
+
+const waveRefactored = (str) => {
+  let wave = [];
+  for (let i = 0; i < str.length; i++) {
+    let splitString = str.split("");
+    if (splitString[i] !== " ") {
+      splitString[i] = splitString[i].toUpperCase();
+      wave.push(splitString.join(""));
+    } 
+  }
+  return wave;
+};
+
+console.log(waveRefactored("two words"));
