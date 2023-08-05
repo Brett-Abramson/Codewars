@@ -17,4 +17,26 @@ const nbDig = (n ,d) => {
   return count
  }
 
- console.log(nbDig(10, 1))
+//  console.log(nbDig(10, 1))
+
+// REFACTORED
+
+const nbDigRefactored = (n , d) => {
+  let count = 0;
+
+  for (let i = 0; i <= n; i++) {
+    const squared = i * i;
+    let num = squared;
+
+    while (num > 0) {
+      if( num% 10 === d) {
+        count++;
+      }
+      num = Math.floor(num / 10)
+    }
+  }
+
+  return count;
+}
+
+console.log(nbDigRefactored(10, 1))
