@@ -22,3 +22,28 @@ const sumDigPow = (a, b) => {
 };
 
 console.log(sumDigPow(1, 100));
+
+// REFACTORED
+// change variable names for better readability
+// use a for loop instead of forEach to slightly improve performance, as forEach introduces the overhead of the function call for each digit
+
+const sumDigPowRefactored = (a, b) => {
+  let eurekas = [];
+
+  for (let i = a; i <= b; i++) {
+    const digits = i.toString().split("");
+    let sumOfPowers = 0;
+
+    for (let index = 0; index < digits.length; index++) {
+      sumOfPowers += Math.pow(Number(digits[index]), index + 1);
+    }
+
+    if (sumOfPowers === i) {
+      eurekas.push(i);
+    }
+  }
+
+  return eurekas;
+};
+
+console.log(sumDigPowRefactored(1, 1000));
