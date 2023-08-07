@@ -11,3 +11,9 @@ const validatePIN = (pin) => {
 }
 
 console.log(validatePIN(1234))
+
+// REFACTORED
+
+const validatePINRefactored = (pin) => {
+  return /^(\d{4}|\d{6})$/.test(pin)
+}
