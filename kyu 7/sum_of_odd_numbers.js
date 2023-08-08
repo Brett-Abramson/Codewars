@@ -23,6 +23,7 @@ const rowSumOddNumbers = (n) => {
   }
   
   return sum
+  // return Math.pow( n, 3) REFACTOR
 }
 
-console.log(rowSumOddNumbers(42))
+console.log(rowSumOddNumbers(3))
