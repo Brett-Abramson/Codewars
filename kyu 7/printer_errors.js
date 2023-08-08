@@ -19,3 +19,7 @@ const printerError = (s) => {
 }
 
 console.log(printerError(errorMsg))
+
+// REFACTORED
+
+const printerErrorRefactored = s => `${s.replace(/[a-m]/gi, "").length}/${s.length}`;
