@@ -24,3 +24,5 @@ const minDistance = (n) => {
 
 console.log(minDistance(13013))
 
+
+
