@@ -21,8 +21,14 @@ const number = busStops => {
     peopleOnBus += stop[0]
     peopleOnBus -= stop[1]
   }
-  
+
   return peopleOnBus
 }
 
 console.log(number(array))
+
+// REFACTORED
+
+const numberRefactored = busStops => {
+  return busStops.reduce((peopleOnBus, [boarding, departing]) => peopleOnBus + boarding - departing, 0)
+}
