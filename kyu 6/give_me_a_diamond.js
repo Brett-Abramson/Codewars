@@ -40,3 +40,26 @@ const diamond = (n) => {
 };
 
 console.log(diamond(5));
+
+// REFACTORED
+
+const diamondRefactored = (n) => {
+  if (n % 2 === 0 || n <= 0) return null;
+
+  let diamondArray = [];
+
+  const generateLine = (spaces, stars) => {
+    return " ".repeat(spaces) + "*".repeat(stars) + "\n";
+  }
+
+  for (let i = 1; i < n; i += 2) {
+    const spaces = (n - i) / 2;
+    diamondArray.push(generateLine(spaces, i))
+  }
+
+  for (let i = n; i > 0; i -= 2) {
+    const spaces = (n - i) / 2
+    diamondArray.push(generateLine(spaces, i))
+  }
+  return diamondArray.join("");
+};
