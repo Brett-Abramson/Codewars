@@ -14,4 +14,21 @@ const twoSum = (numbers, target) => {
   }
 };
 
-console.log(twoSum(testArray, 4));
+// console.log(twoSum(testArray, 4));
+
+const twoSumRefactored = (numbers, target) => {
+  let i = 0;
+  let j = numbers.length - 1;
+
+  while (i < j) {
+    if(numbers[i] + numbers[j] === target) {
+      return [i, j];
+    } else if (numbers[i] + numbers[j] < target) {
+      i++
+    } else j --
+  }
+
+  return null
+}
+
+console.log(twoSumRefactored(testArray, 4));
