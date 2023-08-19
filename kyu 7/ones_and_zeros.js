@@ -27,4 +27,18 @@ const binaryArrayToNumber = (array) => {
   return binaryValue;
 };
 
-console.log(binaryArrayToNumber([1, 1, 1, 1]));
+// console.log(binaryArrayToNumber([1, 1, 1, 1]));
+
+const binaryArrayToNumberRefactored = (array) => {
+  const binaryValue = array.reduce((total, currentValue, index) => {
+    if(currentValue === 1){
+      const currentBinaryValue = Math.pow(2, array.length - 1 -index)
+      return total + currentBinaryValue
+    }
+    return total; // Return the accumulator if the value is not 1
+  }, 0)
+
+  return binaryValue
+}
+
+console.log(binaryArrayToNumberRefactored([1, 0, 1, 1]));
