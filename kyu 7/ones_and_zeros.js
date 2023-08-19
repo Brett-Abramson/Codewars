@@ -42,3 +42,25 @@ const binaryArrayToNumberRefactored = (array) => {
 }
 
 console.log(binaryArrayToNumberRefactored([1, 0, 1, 1]));
+
+
+// BEST PRACTICE
+
+const binaryArrayToNumberUsingBitwise = (array) => {
+  return array.reduce((total, digit) => (total << 1) + digit, 0);
+};
+// Here's what this optimized solution does:
+
+// It uses the reduce function, similar to your original implementation, but with a more concise approach.
+// The callback function for the reduce operation takes two arguments: total (accumulator) and digit (the current digit from the binary array).
+// (total << 1) + digit is used to calculate the decimal value. Shifting total left by 1 position (equivalent to multiplying by 2) effectively shifts the current value to the next position, and then we add the current digit.
+// The initial value for the accumulator is 0, which is passed as the second argument to reduce.
+// This solution takes advantage of bitwise left shifting (<<) for more efficient calculation of the decimal value, and the code is more concise. It's also worth noting that this approach doesn't require any explicit branching or conditionals, which can further improve performance.
+
+// While your original solution and the optimized solution both achieve the same result, the optimized solution might be considered more elegant and efficient due to its use of bitwise operations. However, code readability and maintainability are also important, so you should choose an approach that strikes the right balance for your specific use case and team's coding style.
+
+
+
+
+
+
