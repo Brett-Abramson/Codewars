@@ -18,16 +18,17 @@ const minorWords = "The In";
 
 const titleCase = (title, minorWords) => {
   if (!title) return "";
+
   const array = title.toLowerCase().split(" ");
-  const lowerCaseMinorWords = (minorWords || "").toLowerCase().split(" ");
+  const lowerCaseMinorWords = new Set( (minorWords || "").toLowerCase().split(" "));
   let titleCaseString = "";
-  console.log(lowerCaseMinorWords)
-  console.log(array)
+
   for (const word of array) {
-    if (lowerCaseMinorWords.indexOf(word) === -1) {
+    if (!lowerCaseMinorWords.has(word)) {
       titleCaseString += word[0].toUpperCase() + word.slice(1) + " ";
     } else titleCaseString += word + " ";
   }
+
   titleCaseString = titleCaseString[0].toUpperCase() + titleCaseString.slice(1);
 
   return titleCaseString.trimEnd();
