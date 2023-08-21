@@ -18,11 +18,5 @@ const findUniq = (array) => {
   return firstValue >= 2 ? values[1] : values[0];
 };
 
-console.log(findUniq([1, 0, 0]));
+// console.log(findUniq([1, 0, 0]));
 
-// console.log(
-//   `Numbers[0]: ${numbers[0]} === Array[0]: ${array[0]} && (Array[1]: ${array[1]} || Array[2]: ${array[2]}`
-// );
-
-// match that number with one from the SET
-// return the other number
