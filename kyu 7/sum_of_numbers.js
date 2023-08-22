@@ -2,12 +2,21 @@
 
 // Note: a and b are not ordered!
 
-const getSum = (a, b) => { 
-  let sum = 0
+const getSum = (a, b) => {
+  let sum = 0;
   for (let i = Math.min(a, b); i <= Math.max(a, b); i++) {
-    sum += i
+    sum += i;
   }
-  return sum
- }
+  return sum;
+};
 
- console.log(getSum(4, 1))
+console.log(getSum(4, 1));
+
+//  REFACTORED
+
+const getSumRefactored = (a, b) => {
+  const min = Math.min(a, b);
+  const max = Math.max(a, b);
+  return (max - min + 1) * (min + max) / 2;
+};
+// Sum of Arithmetic Series Formula
