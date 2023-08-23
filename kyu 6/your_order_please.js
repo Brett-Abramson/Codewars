@@ -22,4 +22,12 @@ const order = (words) => {
   return orderedArray.join(" ")
  }
 
- console.log(order(input))
+//  console.log(order(input))
+
+ const orderRefactored = (words) => { 
+  return words.splilt(" ").sort((a, b) => {
+    return a.match(/\d/) - b.match(/\d/);
+  }).join(" ")
+  }
+
+  console.log(order(input))
