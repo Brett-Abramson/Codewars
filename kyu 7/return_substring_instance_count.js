@@ -7,8 +7,10 @@
 // Overlap is not permitted : "aaa" contains 1 instance of "aa", not 2.
 
 const solution = (fullText, searchText) => {
-  let regex = new RegExp(searchText, "g");
-  return regex.test(fullText) ? fullText.match(regex).length : 0;
+  const regex = new RegExp(searchText, "g");
+  const matches = fullText.match(regex);
+
+  return matches ? matches.length : 0;
 };
 
 console.log(solution("aa_bb_cc_dd_bb_e", "bb"));
