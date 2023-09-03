@@ -7,9 +7,7 @@
 // -32 --> 5
 // Let's assume that all numbers in the input will be integer values.
 
-const sumDigits = (number) => {
-  return number === 0 ? 0
-  : Math.abs(number).toString().split("").reduce((sum, digit) => Number(sum) + Number(digit))
-}
+const sumDigits = (number) => Math.abs(number).toString().split("").reduce((sum, digit) => Number(sum) + Number(digit), 0)
+
 
  console.log(sumDigits(0))
