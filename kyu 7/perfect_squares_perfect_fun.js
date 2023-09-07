@@ -16,25 +16,23 @@
 // Note: 9 digits so 3 squared (3x3 perfect square). 3 digits on each line.
 
 const squareIt = (int) => {
-  
-  const string = int.toString()
+  const string = int.toString();
   const length = Math.sqrt(string.length);
 
   const perfectSquare = (n) => {
-    let index = 0
-    let square = ""
-    while(n > 0) {
+    let index = 0;
+    let square = "";
+    while (n > 0) {
       square += `${string.substr(index, length)}\n`;
       index += length;
-      n--
+      n--;
     }
-    return square.trimEnd()
-  }
+    return square.trimEnd();
+  };
 
-  return Number.isInteger(length) ?
-   perfectSquare(length)
-   : "Not a perfect square!";
+  return Number.isInteger(length)
+    ? perfectSquare(length)
+    : "Not a perfect square!";
 };
 
 console.log(squareIt(1));
-
