@@ -8,20 +8,14 @@
 // charConcat("abcdef")    == 'af1be2cd3'
 // charConcat("abc!def")   == 'af1be2cd3' // same result
 
-const input = "Code!Wars";
+const input = "abc!def";
 
 const charConcat = (string) => {
-  let conCat = "";
-  if (string % 2 !== 0) {
-    conCat =
-      string.substring(0, Math.floor(string.length / 2)) +
-      string.substring(Math.ceil(string.length / 2), string.length);
-  } else conCat = string;
-  let endIndex = string.length - 1
-  let finalString = ""
+  let endIndex = string.length - 1;
+  let finalString = "";
   for (let i = 0; i < endIndex; i++) {
-    finalString += string[i] + string[endIndex] + ( i + 1)
-    endIndex--
+    finalString += string[i] + string[endIndex] + (i + 1);
+    endIndex--;
   }
   return finalString;
 };
