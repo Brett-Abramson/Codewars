@@ -13,7 +13,7 @@
 
 // If the string S is an empty value or the integer N is not positive, return the first argument without changes.
 
-const input = "This is a test!";
+const input = "012345";
 
 const encrypt = (text, n) => {
   if (text === null || n < 1) return text;
@@ -21,9 +21,18 @@ const encrypt = (text, n) => {
   const runEncrypt = (string) => {
     let odd = "";
     let even = "";
-    for (let i = 0; i < string.length; i++) {
-      i % 2 !== 0 ? (odd += string.charAt(i)) : (even += string.charAt(i));
+    // ORIGINAL
+    // for (let i = 0; i < string.length; i++) {
+    //   i % 2 !== 0 ? (odd += string.charAt(i)) : (even += string.charAt(i));
+    // }
+    // REFACTOR
+    for (let i = 0; i < string.length; i += 2) {
+      even += string.charAt(i);
+      if (i + 1 < string.length) {
+        odd += string.charAt(i + 1);
+      }
     }
+
     const encrypted = odd.concat(even);
     return encrypted;
   };
@@ -44,11 +53,15 @@ const decrypt = (encryptedText, n) => {
   const length = encryptedText.length;
 
   const runDecrypt = (string) => {
+    const mid = Math.floor(length / 2);
     let decryptedString = "";
+    let even = mid;
     let odd = 0;
-    let even = Math.floor(length / 2);
-    while (odd < length / 2) {
+    while (odd < mid) {
       decryptedString += string.charAt(even++) + string.charAt(odd++);
+    }
+    if (length % 2 !== 0) {
+      decryptedString += string.charAt(even);
     }
     return decryptedString;
   };
@@ -58,7 +71,7 @@ const decrypt = (encryptedText, n) => {
     n--;
   }
 
-  return encryptedText.slice(0, length);
+  return encryptedText;
 };
 
 console.log(decrypt(encryptedText, 1));
