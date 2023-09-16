@@ -18,6 +18,20 @@ const capitalize = (string) => {
   return [evens, odds]
 };
 
-
+// const capitalize = (string) => {
+//   return [...string].reduce(
+//     (accum, ltr, index) => {
+//       if (index % 2) {
+//         accum[0] += ltr;
+//         accum[1] += ltr.toUpperCase();
+//       } else {
+//         accum[0] += ltr.toUpperCase();
+//         accum[1] += ltr;
+//       }
+//       return accum;
+//     },
+//     ["", ""]
+//   );
+// };
 
 console.log(capitalize(input));
