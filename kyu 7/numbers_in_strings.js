@@ -21,10 +21,16 @@ const solve = (string) => {
   return largestNum;
 };
 
-console.log(solve(input));
+// console.log(solve(input));
 
-//  got through array and if at that spot it is a number
-// add it to variable
-// when the next spot isn't a number,
-//  first compare it to largest number and if bigger replace largest number
-//  then set num back to null
+
+// SIMPLE REFACTOR USING REGEX
+const solve1 = s => Math.max(...s.match(/\d+/g));
+
+// REGEX \d is the same as writing [0-9]
+// the + sign is a quantifier that specifies that the preceding character or group(in this case, \d) should match one or more times. so \d+ will match one or more consecutive digits
+// SO
+// \d means all digits
+// + means looks for consecutive matches and group them
+
+// Putting it all together, the regex /\d+/g is used to find and match one or more consecutive digits in the input string. When applied with match(), it returns an array containing all the number groupings found in the string.
