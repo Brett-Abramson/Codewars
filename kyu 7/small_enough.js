@@ -13,3 +13,9 @@ const smallEnough = (array, limit) => {
  }
 
  console.log(smallEnough(input, 107))
+
+//  REFACTORED
+
+const smallEnough1 = (a, limit) => Math.max(...a) <= limit
+
+// problem with this is it will always iterate through the whole array. Where first solution stops as soon as exceeding limit is true
