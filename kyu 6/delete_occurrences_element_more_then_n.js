@@ -7,21 +7,56 @@
 // For example if the input number is 2, and the input list is [1,2,3,1,2,1,2,3], you take [1,2,3,1,2], drop the next [1,2] since this would lead to 1 and 2 being in the result 3 times, and then take 3, which leads to [1,2,3,1,2,3].
 // With list [20,37,20,21] and number 1, the result would be [20,37,21].
 
+// const deleteNth = (arr, n) => {
+//   let occurences = {};
+//   let newArray = [];
+//   for (const num of arr) {
+//     if (!occurences[num]) {
+//       occurences[num] = 1;
+//       newArray.push(num);
+//     } else {
+//       if (occurences[num] < n) {
+//         occurences[num]++;
+//         newArray.push(num);
+//       }
+//     }
+//   }
+//   return newArray;
+// };
+
+// const deleteNth = (arr, n) => {
+//   const occurences = new Map();
+//   let displayArray = [];
+
+//   for (const num of arr) {
+//     if (!occurences.has(num)) {
+//       occurences.set(num, 1);
+//       displayArray.push(num)
+//     } else if (occurences.get(num) < n) {
+//       const count = occurences.get(num) + 1;
+//       occurences.set(num, count);
+//       displayArray.push(num)
+//     }
+//   }
+
+//   return displayArray
+// };
+
+
+
+//  could use the filter method!!
+
 const deleteNth = (arr, n) => {
-  let occurences = {};
-  let newArray = [];
-  for (const num of arr) {
-    if (!occurences[num]) {
-      occurences[num] = 1;
-      newArray.push(num);
-    } else {
-      if (occurences[num] < n) {
-        occurences[num]++;
-        newArray.push(num);
-      }
+  const occurences = new Map();
+
+  return arr.filter((num) => {
+    const count = occurences.get(num) || 0;
+    if (count < n) {
+      occurences.set(num, count + 1);
+      return true;
     }
-  }
-  return newArray;
+    return false;
+  });
 };
 
 console.log(deleteNth([20, 37, 20, 21, 19, 37, 20], 1));
