@@ -74,13 +74,13 @@ const checkColumn = (board, function_name) => {
   // all columns contain an o
   return false;
 };
-
+// 
 const checkDiagonal = (board, function_name) => {
   if(!function_name(board[4])){
     if(function_name(board[0] && function_name(board[8]))) return 0
     else if (function_name(board[2] && function_name(board[6]))) return 2
   }
-  // all columns contain an o
+  // both diagonals contain an o
   return false;
 };
 
@@ -96,13 +96,19 @@ console.log(checkDiagonal(board, xSquare))
 
 
 // STEPS
+// WIN?
 // check if winning move
   // search for 2 x's and open space
   // diagonally
   // columns
   // rows
+// WHERE TO PLAY?
 // check if diagonal play
   // without o's
   // already has an x
-// check if corners are open
-  // if a corner is open check there corresponding corners ( if(0) check (2) && (6))
+  // check if corners are open
+    // check if middle is open (4)
+    // then, if a corner is open check there corresponding corners ( if(0) check (2) && (6), (if(2) check (0) && (8)), (if(6) check (0) && (8)), if(8) check (2) && (6) )
+// OR When checking corners use both row and column and see if they are clear.
+  // (0) will check 0 colum and row 
+  // if not check (8)
