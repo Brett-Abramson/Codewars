@@ -26,3 +26,23 @@ def first_non_consecutive(arr):
   return None
 
 print(first_non_consecutive(input))
+
+# REFACTORED SOLUTION
+def first_non_consecutive(arr):
+  if len(arr) < 2:
+    return None
+  
+  for i in range(1, len(arr)):
+    if arr[i] != arr[i-1] + 1:
+      return arr[i]
+  return None
+
+# In this solution:
+
+# We use a for loop with range(1, len(arr)) to iterate through the elements of the array starting from the second element (index 1) because we are comparing each element with the previous one.
+
+# Inside the loop, we check if the current element arr[i] is not equal to the previous element arr[i-1] + 1. If they are not equal, it means we have found the first non-consecutive element, and we return it.
+
+# If the loop completes without finding a non-consecutive element, we return None.
+
+# This alternative solution eliminates the need for an external variable (lastNum) and simplifies the logic slightly. It's also more in line with typical Python coding style. Both solutions are correct, so you can choose the one that you find more readable and comfortable to work with.
