@@ -10,3 +10,8 @@ def name_shuffler(str_):
   return reverseList
 
 print(name_shuffler("Mo Salah"))
+
+# CLEANER + BETTER PRACTICE
+def name_shuffler(str_):
+    [first, last] = str_.split()
+    return last + " " + first
