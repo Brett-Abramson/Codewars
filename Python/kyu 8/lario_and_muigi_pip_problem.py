@@ -12,21 +12,27 @@
 # Input:  1,3,5,6,7,8 Output: 1,2,3,4,5,6,7,8
 
 
+# def pipe_fix(nums):
+#   min = nums[0]
+#   max = nums[len(nums) - 1]
+#   list = []
+
+#   print(max)
+#   x = min
+#   for x in range(min, max + 1):
+#     list.append(x)
+#     x += 1
+
+#   return list
+
+
+
+
+
+
+# REFACTORED
 def pipe_fix(nums):
-  min = nums[0]
-  max = nums[len(nums) - 1]
-  list = []
-
-  print(max)
-  x = min
-  for x in range(min, max + 1):
-    list.append(x)
-    x += 1
-
-  return list
+	return list(range(nums[0], nums[-1] + 1))
 
 
 print(pipe_fix([ 1,3,5,6,7,8]))
-
-
-
