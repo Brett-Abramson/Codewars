@@ -3,3 +3,6 @@
 
 def square(n):
   return n * n
+
+# could also write
+# n ** 2
