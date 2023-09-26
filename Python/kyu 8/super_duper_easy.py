@@ -8,3 +8,11 @@ def problem(a):
 
 
 print(problem(65))
+
+# REFACTORED
+
+def problem(a):
+  try:
+    return a * 50 + 6
+  except TypeError:
+    return "Error"
