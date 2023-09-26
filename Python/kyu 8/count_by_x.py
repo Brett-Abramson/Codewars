@@ -11,10 +11,17 @@
 def count_by(x, n):
     list = []
     end = x * n + 1
-    incrementor = range(x,end, x)
+    incrementor = range(x, end, x)
     for x in incrementor:
         list.append(x)
 
     return list
 
-print(count_by(1, 10))
+
+# REFACTORED
+
+def count_by(x, n):
+    return list(range(x, x * n + 1, x))
+
+
+print(count_by(4, 50))
