@@ -18,3 +18,11 @@ def is_palindrome(s):
 
 
 print(is_palindrome("Anna"))
+
+# REFACTORED
+
+def is_palidrome(s):
+    s = s.lower() 
+    return s == s[::-1] # Check if the lowercase string is equal to its reverse.
+
+# the s[::-1} uses slicing to create a reversed version of the lowercase string"s". This slice notation means "start from the end and go backward with a step of -1"
