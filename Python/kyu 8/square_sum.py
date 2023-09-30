@@ -9,7 +9,13 @@ def square_sum(numbers):
     result = 0
     for num in numbers:
         result += num**2
-    return result 
+    return result
 
 
 print(square_sum(input))
+
+# MORE PYTHONIC REFACTOR
+
+
+def square_sum(numbers):
+    return sum(num ** 2 for num in numbers)
