@@ -22,3 +22,9 @@ def no_boring_zeros(n):
 print(no_boring_zeros(0))
 
 
+# instead of the int(n) in the return can divide n using the floor division which returns an integer
+
+def no_boring_zeros(n):
+    while n % 10 and n != 0:
+        n //= 10
+    return n
