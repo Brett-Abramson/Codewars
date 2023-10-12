@@ -12,7 +12,6 @@
 
 const input = ["Beg", "I", "Life", "To"];
 
-const sortByLength = (array) => array.sort((a,b) => a.length - b.length)
-
+const sortByLength = (array) => array.sort((a, b) => a.length - b.length);
 
 console.log(sortByLength(input));
