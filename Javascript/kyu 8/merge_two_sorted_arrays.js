@@ -8,23 +8,23 @@ const arr1 = [1, 3, 5, 7, 9];
 const arr2 = [10, 8, 6, 4, 2];
 
 // const mergeArrays = (arr1, arr2) => {
-//   const mergedArr = arr1.concat(arr2);
-//   const sortedArr = mergedArr.sort((a, b) => a - b);
-//   return sortedArr;
+//   const mergedArray = arr1.concat(arr2);
+//   const sortedArray = mergedArray.sort((a, b) => a - b);
+//   let mergedSortedFiltered = [];
+
+//   sortedArray.forEach((element) => {
+//     mergedSortedFiltered.includes(element)
+//       ? null
+//       : mergedSortedFiltered.push(element);
+//   });
+
+//   return mergedSortedFiltered;
 // };
 
-const mergeArrays = (arr1, arr2) => {
-  const mergedArray = arr1.concat(arr2);
-  const sortedArray = mergedArray.sort((a, b) => a - b);
-  let mergedSortedFiltered = []
+// REFACTORED
 
-  sortedArray.forEach(element => {
-    mergedSortedFiltered.includes(element) ?
-    null
-    : mergedSortedFiltered.push(element)
-  });
-
-  return mergedSortedFiltered
-};
+const mergeArrays = (arr1, arr2) => { 
+  return [...new Set([...arr1, ...arr2])].sort((a, b) => a - b)
+ }
 
 console.log(mergeArrays(arr1, arr2));
