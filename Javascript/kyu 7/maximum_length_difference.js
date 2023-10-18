@@ -9,30 +9,41 @@
 // a2 = ["cccooommaaqqoxii", "gggqaffhhh", "tttoowwwmmww"]
 // mxdiflg(a1, a2) --> 13
 
+// const mxdiflg = (a1, a2) => {
+//   if(a1.length === 0 || a2.length === 0) return -1
+
+//   let maxA1 = 0
+//   let minA1 = a1[0].length
+//   for (const string of a1) {
+//     if (maxA1 < string.length) maxA1 = string.length
+//     if (minA1 > string.length) minA1 = string.length
+//   }
+//   let maxA2 = 0
+//   let minA2 = a2[0].length
+//   for (const string of a2) {
+//     if (maxA2 < string.length) maxA2 = string.length
+//     if (minA2 > string.length) minA2 = string.length
+//   }
+
+//   const a = Math.abs(maxA1 - minA2)
+//   const b = Math.abs(minA1 - maxA2)
+//   const c = Math.abs(maxA2 - minA1)
+//   const d = Math.abs(minA2 - maxA1)
+
+//   return Math.max(...[a,b,c,d])
+// };
+
 const mxdiflg = (a1, a2) => {
-  if(a1.length === 0 || a2.length === 0) return -1
-  
-  let maxA1 = 0
-  let minA1 = a1[0].length
-  for (const string of a1) {
-    if (maxA1 < string.length) maxA1 = string.length
-    if (minA1 > string.length) minA1 = string.length
-  }
-  let maxA2 = 0
-  let minA2 = a2[0].length
-  for (const string of a2) {
-    if (maxA2 < string.length) maxA2 = string.length
-    if (minA2 > string.length) minA2 = string.length
-  }
-  
-  const a = Math.abs(maxA1 - minA2)
-  const b = Math.abs(minA1 - maxA2)
-  const c = Math.abs(maxA2 - minA1)
-  const d = Math.abs(minA2 - maxA1)
-  
-  // return `maxA1:${maxA1} \nmaxA2:${maxA2} \nminA1:${minA1} \nminA2:${minA2}`
-  // return `a:${a} b:${b} c:${c} d:${d}`
-  return Math.max(...[a,b,c,d])
+  if (a1.length === 0 || a2.length === 0) return -1;
+  a1Lengths = a1.map((string) => string.length);
+  a2Lengths = a2.map((string) => string.length);
+
+  const a1Max = Math.max(...a1Lengths);
+  const a1Min = Math.min(...a1Lengths);
+  const a2Max = Math.max(...a2Lengths);
+  const a2Min = Math.min(...a2Lengths);
+
+  return Math.max(a1Max - a2Min, a2Max - a1Min);
 };
 
 console.log(
