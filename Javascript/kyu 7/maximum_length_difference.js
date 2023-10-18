@@ -35,8 +35,8 @@
 
 const mxdiflg = (a1, a2) => {
   if (a1.length === 0 || a2.length === 0) return -1;
-  a1Lengths = a1.map((string) => string.length);
-  a2Lengths = a2.map((string) => string.length);
+  const a1Lengths = a1.map((string) => string.length);
+  const a2Lengths = a2.map((string) => string.length);
 
   const a1Max = Math.max(...a1Lengths);
   const a1Min = Math.min(...a1Lengths);
