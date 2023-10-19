@@ -10,14 +10,14 @@
 // All numbers will be positive.
 
 const rowWeights = (array) => {
-  let team1 = 0
-  let team2 = 0
+  let team1 = 0;
+  let team2 = 0;
 
   array.map((weight, position) => {
-    position % 2 ? team2 += weight : team1 += weight
+    position % 2 ? (team2 += weight) : (team1 += weight);
   });
 
-  return [team1, team2]
+  return [team1, team2];
 };
 
-console.log(rowWeights([50,60,70,80]))
+console.log(rowWeights([50, 60, 70, 80]));
