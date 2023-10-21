@@ -12,21 +12,30 @@
 
 const alphabetPosition = (text) => {
   const upperCaseString = text.toUpperCase();
-  let position = [];
+  let positions = [];
   for (let i = 0; i < upperCaseString.length; i++) {
     if (/[A-Z]/.test(upperCaseString[i])) {
-      const element = upperCaseString.charCodeAt(i) - 64;
-      position.push(element);
+      const alphabetPos = upperCaseString.charCodeAt(i) - 64;
+      positions.push(alphabetPos);
     }
   }
-  return position.join(" ");
+  return positions.join(" ");
 };
 
-console.log(alphabetPosition("Abc"));
-console.log(/[A-Z]/g.test("ABC"));
-//  STEPS
-// loop through each character
-// convert to uppercase
-// find charCode
-// subtract 64 so that a = 1
-// add character value to new string
+
+// REFACTORED
+
+const alphabetPosition1 = (text) => {
+  const ASCII_OFFSET = 64;
+  const isAlphabetical = (char) => char >= "A" && char <= "Z";
+
+  return text
+    .toUpperCase()
+    .split("")
+    .filter(isAlphabetical)
+    .map((char) => char.charCodeAt(0) - ASCII_OFFSET)
+    .join(" ");
+};
+
+
+console.log(alphabetPosition1("Abc"));
