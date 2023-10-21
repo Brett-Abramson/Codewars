@@ -11,7 +11,6 @@
 // "What was the name of your first pet?"
 // "Skippy" --> "##ippy"
 
-const maskify = (cc) =>
-  cc.length >= 4 ? cc.slice(-4).padStart(cc.length, "#") : cc;
+const maskify = (cc) => cc.slice(-4).padStart(cc.length, "#") 
 
-console.log(maskify("Skippy"));
+console.log(maskify("23"));
