@@ -18,12 +18,17 @@ const input = [
   [1, 2, 3, 4, 5],
 ];
 
-const sumOfMinimums = (array) => {
-  let sum = 0
-  for (const row of array) {
-    sum += Math.min(...row)
-  }
-  return sum
-};
+// const sumOfMinimums = (array) => {
+//   let sum = 0
+//   for (const row of array) {
+//     sum += Math.min(...row)
+//   }
+//   return sum
+// };
+
+// REFACTORED
+const sumOfMinimums = (array) => { 
+  return array.reduce((sum, row) => sum += Math.min(...row), 0)
+ }
 
 console.log(sumOfMinimums(input));
