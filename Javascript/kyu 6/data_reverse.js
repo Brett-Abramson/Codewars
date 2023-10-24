@@ -17,19 +17,33 @@
 
 const input = [1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,0,1,0,1,0,1,0]
 
-const dataReverse = (data) => { 
-  let numOfBytes = data.length / 8
-  let segmentedArray = []
+// const dataReverse = (data) => { 
+//   let numOfBytes = data.length / 8
+//   let segmentedArray = []
   
-  let start = 0
-  let stop = 8
-  while (numOfBytes > 0) {
-    segmentedArray.push(data.slice(start, stop))
+//   let start = 0
+//   let stop = 8
+//   while (numOfBytes > 0) {
+//     segmentedArray.push(data.slice(start, stop))
 
-    numOfBytes--
-    start += 8
-    stop += 8
+//     numOfBytes--
+//     start += 8
+//     stop += 8
+//   }
+//   return segmentedArray.reverse().flat()
+//  }
+
+// REFACTORED
+
+const BYTE_SIZE = 8;
+
+const dataReverse = (data) => { 
+  const segmentedArray = [];
+
+  for (let i = 0; i < data.length; i += BYTE_SIZE) {
+    segmentedArray.push(data.slice(i, i + BYTE_SIZE))
   }
+
   return segmentedArray.reverse().flat()
  }
 
