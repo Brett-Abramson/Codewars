@@ -15,15 +15,28 @@
 const input =
   "Fred:Corwill;Wilfred:Corwill;Barney:Tornbull;Betty:Tornbull;Bjon:Tornbull;Raphael:Corwill;Alfred:Corwill";
 
-const meeting = (list) => {
-  let sortedList = list.toUpperCase().replaceAll(":", ",").split(";").map((name) => {
-    let reversedName = name.split(",").reverse().join(", ")
-    reversedName = "(" + reversedName + ")"
-    return reversedName
-  }).sort()
+// const meeting = (list) => {
+//   let sortedList = list.toUpperCase().replaceAll(":", ",").split(";").map((name) => {
+//     let reversedName = name.split(",").reverse().join(", ")
+//     reversedName = "(" + reversedName + ")"
+//     return reversedName
+//   }).sort()
 
   
-  return sortedList.join("")
-};
+//   return sortedList.join("")
+// };
 
+// REFACTORED
+
+const meeting = (list) => { 
+  return list
+    .toUpperCase()
+    .split(";")
+    .map(name => {
+      const [firstName, lastName] = name.split(":");
+      return `(${lastName}, ${firstName})`;
+    })
+    .sort()
+    .join("")
+ }
 console.log(meeting(input));
