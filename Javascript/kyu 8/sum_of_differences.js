@@ -24,3 +24,8 @@ const sumOfDifferences = (array) => {
 
 const arr = [2, 1, 10];
 console.log(sumOfDifferences(arr));
+
+// REFACTORED USING MATHS
+const sumOfDifferencesRefactored = (arr) => { 
+  return arr.length > 1 ? Math.max(...arr) - Math.min(...arr) : 0;
+ }
