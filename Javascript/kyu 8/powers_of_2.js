@@ -8,4 +8,5 @@ const powersOfTwo = (n) => {
   return result
 }
 
+
 console.log(powersOfTwo(4));
