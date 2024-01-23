@@ -25,20 +25,8 @@
 // alphabetWar("zzzzs");    //=> Right side wins!
 // alphabetWar("wwwwwwz");  //=> Left side wins!
 
-// const leftSidePowers = (letter) => {
-//   if (letter === "w") return 4;
-//   if (letter === "p") return 3;
-//   if (letter === "b") return 2;
-//   if (letter === "s") return 1;
-// };
 
-// const rightSidePowers = (letter) => {
-//   if (letter === "m") return 4;
-//   if (letter === "q") return 3;
-//   if (letter === "d") return 2;
-//   if (letter === "z") return 1;
-// };
-
+// ORIGINAL SOLUTION - USING FUNCTIONS
 const leftSidePowers = (letter) => {
   switch (letter) {
     case "w":
@@ -69,6 +57,8 @@ const rightSidePowers = (letter) => {
   }
 };
 
+
+
 const alphabetWar = (fight) => {
   let leftSide = 0;
   let rightSide = 0;
@@ -86,3 +76,36 @@ const alphabetWar = (fight) => {
 };
 
 console.log(alphabetWar("z"));
+
+// 2ND APPROACH USING DICTIONARYIES OR OBJECTS
+const leftSidePowers = {
+  w: 4,
+  p: 3,
+  b: 2,
+  s: 1,
+};
+
+const rightSidePowers = {
+  m: 4,
+  q: 3,
+  d: 2,
+  z: 1,
+};
+
+const alphabetWar = (fight) => {
+  let leftSide = 0;
+  let rightSide = 0;
+
+  for (const letter of fight) {
+    leftSide += leftSidePowers[letter] || 0;
+    rightSide += rightSidePowers[letter] || 0;
+  }
+
+  if (leftSide > rightSide) {
+    return "Left side wins!";
+  } else if (rightSide > leftSide) {
+    return "Right side wins!";
+  } else {
+    return "Let's fight again!";
+  }
+};
