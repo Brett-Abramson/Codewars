@@ -21,3 +21,12 @@ const sequenceSum = (begin, end, step) => {
  }
 
  console.log(sequenceSum(2,2,2));
+
+//  RECURSION SOLUTION
+
+const sequenceSumRecursion = (begin, end, step) => {
+  if (begin > end) {
+    return 0;
+  }
+  return begin + sequenceSumRecursion(begin + step, end, step);
+};
