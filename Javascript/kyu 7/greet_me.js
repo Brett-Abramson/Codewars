@@ -6,7 +6,7 @@
 // "JACK"  --> "Hello Jack!"
 
 const greet = (name) => {
-  const firstLtr = name.slice(0, 1).toUpperCase()
+  const firstLtr = name.charAt(0).toUpperCase()
   const restOfName = name.slice(1,name.length).toLowerCase()
   const capitalizedName = firstLtr + restOfName
   return `Hello ${capitalizedName}!`
