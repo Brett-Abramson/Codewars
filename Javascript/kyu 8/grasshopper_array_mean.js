@@ -16,12 +16,14 @@
 
 
 
-const findAverage = (nums) => {
-  let sum = 0
-  for (const num of nums) {
-    sum += num
-  }
-  return sum/nums.length
-}
+// const findAverage = (nums) => {
+//   let sum = 0
+//   for (const num of nums) {
+//     sum += num
+//   }
+//   return sum/nums.length
+// }
+
+const findAverage = (nums) => nums.reduce((total, num) => total + num) / nums.length
 
 console.log(findAverage([1,2,3,1]));
