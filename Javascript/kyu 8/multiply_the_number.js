@@ -6,15 +6,27 @@
 //   0 -->     0  (  0 * 5¹)
 //  -3 -->   -15  ( -3 * 5¹)
 
-const multiply = (number) => { 
-  let digits = 0
-  if(number.toString()[0] !== "-"){
-    digits = number.toString().length
-  } else {
-    digits = number.toString().length - 1
-  }
+// const multiply = (number) => { 
+//   let digits = 0
+//   if(number.toString()[0] !== "-"){
+//     digits = number.toString().length
+//   } else {
+//     digits = number.toString().length - 1
+//   }
   
+//   return number * (5 ** digits)
+//  }
+
+//  console.log(multiply(150));
+
+
+//  REFACTORED 
+
+
+const multiply = (number) => { 
+  let digits = Math.abs(number).toString().length
+
   return number * (5 ** digits)
  }
 
- console.log(multiply(150));
+ console.log(multiply(-3));
