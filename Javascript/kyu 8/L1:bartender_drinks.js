@@ -32,3 +32,23 @@ const getDrinkByProfession = (param) => {
 
 console.log(getDrinkByProfession("Bike gang member"));
 console.log(getDrinkByProfession("Me"));
+
+// REFACTOR
+
+const getDrinkByProfessionRefactor = (param) => {
+  const formattedParam = param.toLowerCase()
+
+  const professions = {
+    "jabroni": "Patron Tequila",
+    "school counselor": "Anything with Alcohol",
+    "programmer": "Hipster Craft Beer",
+    "bike gang member": "Moonshine",
+    "politician": "Your tax dollars",
+    "rapper": "Cristal",
+  };
+
+  return professions[formattedParam] || "Beer"
+};
+
+console.log(getDrinkByProfessionRefactor("Bike gang member"));
+console.log(getDrinkByProfessionRefactor("Me"));
